@@ -1,16 +1,12 @@
-import mongoose, { mongo } from "mongoose";
-import dotenv from 'dotenv';
-dotenv.config({quiet:true});
-const MONGO_URI = process.env.MONGO_URI;
+import mongoose, { connect } from 'mongoose'
 
-
-const ConnectDB = async()=>{
+const ConnectDB = async(MONGO_URI)=>{
     try{
-        await mongoose.connect(MONGO_URI);
-    }catch(error){
-        console.error("DB Connection Error");
+        await mongoose.connect(MONGO_URI)
+    }catch(err){
+        console.error("Some error from the database side",err);
+        throw err
     }
 }
 
 export default ConnectDB;
-

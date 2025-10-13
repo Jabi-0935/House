@@ -8,10 +8,11 @@ app.use(express.json())
 app.use(cors())
 
 app.use((req,res,next)=>{
-    console.log(`${req.method}`);
-    next();
+    console.log(`${req.method} on ${req.path}`);
+    next()
 })
 app.use('/',authRoutes)
+
 
 app.get('/',(req,res)=>{
     res.json("Hello From House server")

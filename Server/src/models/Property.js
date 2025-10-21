@@ -4,7 +4,7 @@ const PropertySchema = new Schema({
     ownerId:{type:mongoose.Schema.ObjectId,ref:'User'},
     propertyName:{type:String,required:true,unique:true},
     propertyAddress:{type:String,required:true},
-    propertCity:{type:String}
+    propertyCity:{type:String}
 },{ timestamps: true })
 
 const Property = mongoose.model('Property',PropertySchema);

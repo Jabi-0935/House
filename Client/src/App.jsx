@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Start from "./pages/Start";
+import Home from "./pages/Home";
 import {createBrowserRouter,RouterProvider,Outlet} from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Auth from "./pages/Auth";
+import ProtectedRoute from "./components/ProtectedRoute";
 function Layout() {
   return (
     <>
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
   {
     element:<Layout/>,
     children:[
-      {path:"/",element:<Start/>},
-      {path:"/auth",element:<Auth/>}
+      {path:"/",element:<Home/>},
+      {path:"/auth",element:<Auth/>},
+      {path:"/",element:(ProtectedRoute)
+
+
+      }
     ]
   }
 ])
